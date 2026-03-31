@@ -83,6 +83,21 @@
                 # per new level:
                     # run level_up() function
 
+# Class Character:
+    # define method __init__(self):
+        # attributes important to character will be name, class, race, level, inventory, skills, and attributes
+    
+    # define method __str__(self):
+        # print out basic details of character, such as name, class, race, and level
+
+    # define method level_up():
+
+    # define method edit_inventory():
+
+    # define method edit_skills():
+
+
+
 
 characters = {  
                 "Name":{
