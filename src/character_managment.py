@@ -522,7 +522,7 @@ def level_up(characters,character_name):
                     case "2":
                         if characters[character_name]["Stats"]["Dexterity"] == 20:
                             
-                            print("Strength is already 20, it cannot go any higher.")
+                            print("Dexterity is already 20, it cannot go any higher.")
                             continue
                         else:
                             characters[character_name]["Stats"]["Dexterity"] += 1
@@ -530,7 +530,7 @@ def level_up(characters,character_name):
                     case "3":
                         if characters[character_name]["Stats"]["Constitution"] == 20:
                             
-                            print("Strength is already 20, it cannot go any higher.")
+                            print("Constitution is already 20, it cannot go any higher.")
                             continue
                         else:
                             characters[character_name]["Stats"]["Constitution"] += 1
@@ -538,7 +538,7 @@ def level_up(characters,character_name):
                     case "4":
                         if characters[character_name]["Stats"]["Wisdom"] == 20:
                             
-                            print("Strength is already 20, it cannot go any higher.")
+                            print("Wisdom is already 20, it cannot go any higher.")
                             continue
                         else:
                             characters[character_name]["Stats"]["Wisdom"] += 1
@@ -546,7 +546,7 @@ def level_up(characters,character_name):
                     case "5":
                         if characters[character_name]["Stats"]["Intelligence"] == 20:
                             
-                            print("Strength is already 20, it cannot go any higher.")
+                            print("Intelligence is already 20, it cannot go any higher.")
                             continue
                         else:
                             characters[character_name]["Stats"]["Intelligence"] += 1
@@ -554,7 +554,7 @@ def level_up(characters,character_name):
                     case "6":
                         if characters[character_name]["Stats"]["Charisma"] == 20:
                             
-                            print("Strength is already 20, it cannot go any higher.")
+                            print("Charisma is already 20, it cannot go any higher.")
                             continue
                         else:
                             characters[character_name]["Stats"]["Charisma"] += 1

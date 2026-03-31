@@ -1,1 +1,62 @@
-item_name,item_id,description,value,level_requirement,class_requirement
+item_name,item_id,description,value,weight,class_requirement
+Daggers,aaa,"A pair of daggers that deal 1d4 damage.",5 Gold pieces,2 pounds,Rogue
+Rapier,aab,"An old European sword with a thin, fast blade that deals 1d8 damage.",25 Gold pieces,3 pounds,Rogue
+Leather Armor,aac,"Basic leather armor that provides an AC of 11 + Dex Modifier.",10 Gold,10 pounds,Rogue
+Lockpicks,aad,"A set of lockpicks that can unlock many doors, if you have the skill.",2 Gold,0.5 pound,Rogue
+Fake ID,aae,"A fake ID that can get you many places you shouldn’t be.",Varies,Negligible,Rogue
+Cloak of Shadows,aaf,"A dark cloak that helps you blend into shadows.",15 Gold,2 pounds,Rogue
+Poison Vial,aag,"A small vial of basic poison.",20 Gold,0.5 pound,Rogue
+
+Greatsword,aah,"A large two-handed sword ideal for heavy attacks, dealing 2d6 damage.",50 Gold pieces,6 pounds,Fighter
+Poleaxe,aai,"A versatile weapon with an axe blade, hammer, and spike that deals 1d10 damage.",40 Gold pieces,7 pounds,Fighter
+Chainmail,aaj,"Interlocked metal rings providing solid protection with an AC of 16.",75 Gold,20 pounds,Fighter
+Full Plate,aak,"Heavy plate armor covering the entire body, providing an AC of 18.",150 Gold,50 pounds,Fighter
+Military Insignia,aal,"A symbol representing rank and affiliation.",10 Gold,1 pound,Fighter
+Battle Trinket,aam,"A personal charm carried into battle for luck.",5 Gold,Negligible,Fighter
+Shield,aan,"A sturdy shield that increases defense.",20 Gold,6 pounds,Fighter
+Longsword,aao,"A versatile sword dealing 1d8 damage.",15 Gold,4 pounds,Fighter
+
+Warhammer,aap,"A heavy hammer designed for crushing armor, dealing 1d8 damage.",30 Gold,5 pounds,Barbarian
+Greataxe,aaq,"A massive axe for devastating swings that deals 1d12 damage.",35 Gold,7 pounds,Barbarian
+Chainmail,aar,"Interlocked metal rings providing solid protection with an AC of 16.",75 Gold,20 pounds,Barbarian
+Stress Toy,aas,"Something to prevent unnecessary rage.",1 Gold,Negligible,Barbarian
+Unidentified Blood Vial,aat,"A mysterious vial of blood.",Unknown,Negligible,Barbarian
+Bone Necklace,aau,"A necklace made of animal bones.",8 Gold,1 pound,Barbarian
+Fur Cloak,aav,"A warm cloak made of animal fur.",12 Gold,5 pounds,Barbarian
+
+Holy Staff,aaw,"A staff imbued with divine power that deals 1d6 damage.",20 Gold,4 pounds,Cleric
+Robes,aax,"Simple robes that offer minimal protection.",5 Gold,3 pounds,Cleric
+Leather,aay,"Light leather armor for protection.",10 Gold,10 pounds,Cleric
+Holy Symbol,aaz,"A symbol representing the cleric's deity.",15 Gold,1 pound,Cleric
+Scriptures,aba,"Religious texts for prayer and guidance.",10 Gold,2 pounds,Cleric
+Incense Kit,abb,"Used for rituals and ceremonies.",8 Gold,1 pound,Cleric
+Healing Kit,abc,"Supplies for stabilizing wounds.",12 Gold,2 pounds,Cleric
+
+Magic Focus,abd,"An object used to channel magical energy.",30 Gold,1 pound,Wizard
+Leather,abe,"Light armor providing minimal protection.",10 Gold,10 pounds,Wizard
+Textbooks,abf,"Books full of spells and magical research.",50 Gold,10 pounds,Wizard
+Really Cool Hat,abg,"A tall wizard hat with stars.",Undetermined,1 pound,Wizard
+Spell Scroll,abh,"A scroll containing a single-use spell.",25 Gold,0.2 pound,Wizard
+Crystal Ball,abi,"Used for scrying and divination.",40 Gold,3 pounds,Wizard
+
+Instrument,abj,"A musical instrument used for magic.",25 Gold,3 pounds,Bard
+Leather Armor,abk,"Light armor providing minimal protection.",10 Gold,10 pounds,Bard
+Chainmail Armor,abl,"Interlocked metal rings providing protection.",75 Gold,20 pounds,Bard
+Notepad,abm,"A book for lyrics and notes.",2 Gold,1 pound,Bard
+Tuning Fork,abn,"Used to tune instruments.",5 Gold,1 pound,Bard
+Stage Costume,abo,"A flashy outfit for performances.",15 Gold,4 pounds,Bard
+Flute,abp,"A simple wind instrument.",10 Gold,2 pounds,Bard
+
+Ropes,abq,"Strong ropes for climbing or tying objects.",5 Gold,5 pounds,All
+Torches,abr,"Standard torches for lighting dark areas.",1 Gold,1 pound,All
+First-aid kit,abs,"Basic supplies for treating wounds.",10 Gold,3 pounds,All
+Potions,abt,"Various potions for healing or buffs.",Varies,1 pound each,All
+Bedroll,abu,"A compact roll of bedding.",2 Gold,4 pounds,All
+Rations,abv,"Preserved food for one day.",1 Gold,2 pounds,All
+Waterskin,abw,"A container for drinking water.",1 Gold,1 pound,All
+Backpack,abx,"A sturdy pack for carrying supplies.",3 Gold,2 pounds,All
+Flint and Steel,aby,"Tools used to start fires.",2 Gold,1 pound,All
+Lantern,abz,"A reusable light source.",7 Gold,2 pounds,All
+Oil Flask,aca,"Fuel for lanterns or fires.",1 Gold,1 pound,All
+Compass,acb,"Helps with navigation.",5 Gold,1 pound,All
+Map,acc,"A map of the surrounding area.",3 Gold,0.5 pound,All

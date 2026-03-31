@@ -1,2 +1,108 @@
 skill_name,skill_id,description,level_requirement,class_requirement
-fireball,aaa,"It's a fireball.",5,Wizard|Sorcerer|Warlock
+Athletics,aaa,"Physical strength and endurance for climbing, jumping, and lifting.",1,All
+Acrobatics,aab,"Balance, flexibility, and agility in movement.",1,All
+Sleight of Hand,aac,"Quick hand tricks for stealing or manipulating objects.",1,All
+Stealth,aad,"Ability to move silently and remain unseen.",1,All
+Arcana,aae,"Knowledge of magic, spells, and magical lore.",1,All
+History,aaf,"Knowledge of historical events and figures.",1,All
+Investigation,aag,"Skill in uncovering clues and solving mysteries.",1,All
+Religion,aah,"Understanding of gods, faiths, and divine practices.",1,All
+Nature,aai,"Knowledge of the natural world and creatures.",1,All
+Animal Handling,aaj,"Ability to calm or control animals.",1,All
+Insight,aak,"Reading emotions and intentions of others.",1,All
+Perception,aal,"Noticing hidden details and environmental cues.",1,All
+Survival,aam,"Living off the land and navigating wilderness.",1,All
+Deception,aan,"Ability to lie convincingly.",1,All
+Intimidation,aao,"Using presence or threats to influence others.",1,All
+Performance,aap,"Entertaining others through art or talent.",1,All
+Persuasion,aaq,"Convincing others through charm or reasoning.",1,All
+
+Sneak Attack,aar,"Deal extra damage when striking from stealth.",5,Rogue
+Parkour,aas,"Move quickly across obstacles and terrain.",7,Rogue
+Shadow Step,aat,"Teleport between shadows a short distance.",9,Rogue|Wizard
+Backstab Mastery,aau,"Greatly increased damage from behind.",10,Rogue
+
+Fireball,aav,"Cast a powerful explosive ball of fire.",5,Wizard
+Wrong Spell,aaw,"Accidentally cast an unintended spell with random effects.",6,Wizard
+Mana Surge,aax,"Temporarily boost magical output.",8,Wizard
+Spell Echo,aay,"Repeat a recently cast spell at reduced power.",10,Wizard
+
+Rage,aaz,"Enter a furious state that boosts strength and damage.",5,Barbarian
+Angry Bonk,aba,"Deliver a powerful rage-fueled strike.",6,Barbarian
+Reckless Swing,abb,"Sacrifice defense for a stronger attack.",8,Barbarian|Fighter
+Battle Roar,abc,"Let out a roar that intimidates enemies.",10,Barbarian
+
+Sick Lick,abd,"Play an impressive musical riff that inspires allies.",5,Bard
+Distracting Solo,abe,"Perform a solo that distracts enemies.",6,Bard
+Encore,abf,"Repeat the last performance effect.",8,Bard
+Charming Melody,abg,"Charm enemies with music.",10,Bard
+
+Stab,abh,"A straightforward and reliable melee attack.",5,Fighter|Rogue
+Tactical Yelling,abi,"Shout commands that boost ally morale.",6,Fighter
+Shield Bash,abj,"Bash an enemy with a shield to stagger them.",8,Fighter
+Weapon Mastery,abk,"Increased proficiency with all weapons.",10,Fighter
+
+Judgy Heal,abl,"Heal allies while silently judging them.",5,Cleric
+Divine ""I told you so"",abm,"Heal allies with smug divine energy.",6,Cleric
+Blessing,abn,"Grant minor buffs to allies.",8,Cleric
+Smite,abo,"Deal bonus radiant damage to enemies.",10,Cleric|Paladin
+
+Quick Escape,abp,"Quickly disengage from combat.",3,Rogue
+Pickpocket,abq,"Steal small items unnoticed.",4,Rogue
+Trap Sense,abr,"Detect traps more easily.",6,Rogue
+Evasion,abs,"Reduce damage from area effects.",9,Rogue
+
+Spark,abt,"Cast a tiny harmless flame.",2,Wizard
+Mage Hand,abu,"Summon a spectral hand to interact with objects.",3,Wizard
+Arcane Shield,abv,"Create a temporary magical barrier.",7,Wizard
+Teleport Blink,abw,"Short-range teleport.",9,Wizard
+
+Fury Strike,abx,"A stronger melee attack fueled by anger.",3,Barbarian
+Thick Skin,aby,"Reduce incoming damage slightly.",4,Barbarian
+Ground Slam,abz,"Smash the ground to damage nearby enemies.",7,Barbarian
+War Cry,aca,"Boost allies with a powerful shout.",9,Barbarian|Fighter
+
+Tune Up,acb,"Slightly improve performance effects.",3,Bard
+Mocking Verse,acc,"Insult enemies to weaken them.",4,Bard
+Harmony,acd,"Boost allies when grouped together.",7,Bard
+Inspiring Anthem,ace,"Increase team morale significantly.",9,Bard
+
+Quick Strike,acf,"Fast, low-damage attack.",3,Fighter|Rogue
+Second Wind,acg,"Recover a small amount of health.",4,Fighter
+Defensive Stance,ach,"Increase defense temporarily.",7,Fighter
+Battle Focus,aci,"Improve accuracy and damage.",9,Fighter
+
+Minor Heal,acj,"Restore a small amount of health.",2,Cleric
+Purify,ack,"Remove minor negative effects.",3,Cleric
+Divine Shield,acl,"Protect an ally from damage.",7,Cleric
+Radiant Pulse,acm,"Emit a burst of holy energy.",9,Cleric
+
+Pocket Sand,acn,"Throw sand to blind enemies.",12,Rogue
+Not Yours to Take,aco,"Steal items mid-combat.",14,Rogue
+Phantom Strike,acp,"Attack with a ghostly duplicate.",16,Rogue
+Master of Shadows,acq,"Become nearly invisible in darkness.",20,Rogue
+
+Mystical Firearm,acr,"Summon a magical ranged weapon.",12,Wizard
+Magic Tape,acs,"Temporarily fix or enhance objects.",14,Wizard
+Time Warp,act,"Briefly slow down time.",16,Wizard
+Reality Tear,acu,"Distort space to damage enemies.",20,Wizard
+
+Too Angry to Die,acv,"Refuse to fall while enraged.",12,Barbarian
+Optional Physics,acw,"Ignore physics briefly.",14,Barbarian
+Titan Grip,acx,"Wield massive weapons easily.",16,Barbarian
+World Breaker,acy,"Massive attack that damages all nearby.",20,Barbarian
+
+Power Chord,acz,"Deal damage and buff allies.",12,Bard
+Platinum Record,ada,"Achieve legendary performance buffs.",14,Bard
+Sonic Boom,adb,"Release a damaging sound wave.",16,Bard
+Legendary Performance,adc,"Massively boost all allies.",20,Bard
+
+Parry This,add,"Counter incoming attacks.",12,Fighter
+Panic Attack,ade,"Boost speed but reduce control.",14,Fighter
+Unbreakable,adf,"Greatly reduce incoming damage.",16,Fighter
+War God,adg,"Temporarily become nearly unstoppable.",20,Fighter
+
+Holy Uno Reverse,adh,"Reflect damage back to attacker.",12,Cleric
+Divine Intervention,adi,"Call upon divine aid.",15,Cleric
+Mass Heal,adj,"Heal all allies significantly.",17,Cleric
+Ascension,adk,"Transform into a divine being briefly.",20,Cleric
