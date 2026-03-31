@@ -1,1 +1,2 @@
-item_name,item_id,description,level_requirement,class_requirement
+skill_name,skill_id,description,level_requirement,class_requirement
+fireball,aaa,"It's a fireball.",5,Wizard|Sorcerer|Warlock
