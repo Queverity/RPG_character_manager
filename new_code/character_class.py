@@ -10,9 +10,7 @@
         # print out basic details of character, such as name, class, race, and level
 
     # define method level_up():
-        # give user option to either choose a new skill, or gain +1 to a stat
-        # if user chooses skill, display avaiable skills, have them choose one
-        # if user chooses stat, have user choose which stat to increment, making sure it doesn't go over 1
+        # tell user they have gained a new skill slot and can go select that elsewhere, and allow them to add +1 to a stat
 
     # define method edit_inventory():
         # ask user how they would like to edit inventory (add item, remove item)
