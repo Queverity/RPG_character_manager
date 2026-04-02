@@ -30,6 +30,9 @@ class Item:
     def __str__(self):
         return f"{self.name} ({self.id}): {self.description} | Value: {self.value} | Weight: {self.weight}"
     
+    def basic_view(self):
+        return f"{self.name} ({self.id})"
+    
 def load_items(items):
     items_list = []
     for _ in items:
