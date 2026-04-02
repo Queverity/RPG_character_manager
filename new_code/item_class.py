@@ -99,5 +99,3 @@ def create_item(items_list):
         print("Item created and saved succesfully!")
         # after_action()
         return
-
-    

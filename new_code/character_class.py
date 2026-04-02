@@ -71,4 +71,11 @@ class Character:
                 # after_action()
                 return
 
+    def edit_inventory(self):
+        pass
 
+    def edit_skills(self):
+        pass
+
+def create_character():
+    pass
