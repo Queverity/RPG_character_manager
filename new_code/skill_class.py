@@ -31,6 +31,9 @@ class Skill:
     def __str__(self):
         return f"{self.name} ({self.id}): {self.description} | Level: {self.level_requirement}"
     
+    def basic_view(self):
+        return f"{self.name} ({self.id})"
+    
 def load_items(skills):
     skills_list = []
     for _ in skills:

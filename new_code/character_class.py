@@ -237,9 +237,8 @@ class Character:
                         # after_action()
                         return
 
-                    available_items = self.find_items(items_list)
-
                     count = 0
+                    print("Items available to add:\n")
                     for i in available_items:
                         count += 1
                         # Since these are Item class objects, they have a __str__ function built in so they print out pretty.
@@ -252,8 +251,8 @@ class Character:
 
                     found = False
 
-                    for i in self.inventory:
-                        if item_id == i.lower():
+                    for i in available_items:
+                        if item_id == i.id.lower():
                             if i.weight != "Negligible":
                                 if inventory_weight + int(i.weight) > self.attributes['Strength'] * 15:
                                     print("Adding that item to your inventory would bring your total inventory weight over maximum (Strength * 15).")
@@ -274,6 +273,7 @@ class Character:
 
                     if found != True:
                         print("Please enter a valid ID.")
+                        continue
 
                     return
                 case '4':
@@ -282,12 +282,272 @@ class Character:
                     print("Please enter 1, 2, 3, or 4.")
                     # after_action
 
+    def edit_skills(self,skills_list):
+        available_skills = self.find_skills(skills_list)
+        user_skills = self.load_skills()
 
-    def edit_skills(self):
-        pass
+        
 
-def create_character():
-    pass
+        while True:
+            print(f"{self.name}'s Skill List:")
 
-def load_character():
-    pass
+            count = 0
+            for i in user_skills:
+                count += 1
+                # Since these are Item class objects, they have a __str__ function built in so they print out pretty.
+                print(f"{count}. {i.basic_view()}")
+
+            print("What would you like to do with your character's inventory?\n1. Inspect Item\n2. Remove Item\n3. Add Item\n4. Return to Character Inspection Menu")
+            choice = input("Enter number:\n").strip()
+
+            # clear_screen()
+
+            match choice:
+                case '1':
+                    count = 0
+                    for i in user_skills:
+                        count += 1
+                        # Since these are Item class objects, they have a __str__ function built in so they print out pretty.
+                        print(f"{count}. {i.basic_view()}")
+
+                    item_id = input("Enter ID of skill you wish to inspect, or enter 'exit' to return to inventory inspection menu:\n").strip().lower()
+
+                    if item_id == 'exit':
+                        return
+
+                    for i in user_skills:
+                        if i.id.lower() == item_id:
+                            print(i)
+                            # after_action()
+                            break
+                    
+                    continue
+
+                case '2':
+                    if bool(self.skills) == False:
+                        print("You have no skills in your inventory.")
+                        # after_action
+                        continue
+
+                    count = 0
+                    for i in user_skills:
+                        count += 1
+                        # Since these are Skill class objects, they have a __str__ function built in so they print out pretty.
+                        print(f"{count}. {i.basic_view()}")
+
+                    item_id = input("Enter ID of skill you wish to remove, or enter 'exit' to return to skill list inspection menu:\n").strip().lower()
+
+                    if item_id == 'exit':
+                        return
+
+                    found = False
+
+                    for i in self.skills:
+                        if item_id == i.lower():
+                            found = True
+                            self.skills.pop(i)
+
+                            for o in user_skills:
+                                if o.id.lower() == item_id:
+                                    user_skills.pop(o)
+                                else:
+                                    pass
+
+                            print("Skill succesfully removed.")
+                            # after_action
+                            break
+
+                    if found != True:
+                        print("Please enter a valid ID.")
+
+                    return
+
+
+                case '3':
+                    max_skills = self.level + 2
+                    if len(self.skills) == max_skills:
+                        print(f"You have the max number of skills ({self.level + 2}) for your level:")
+                        continue
+
+                    count = 0
+                    print("Skills available to add:")
+                    for i in available_skills:
+                        count += 1
+                        # Since these are Skill class objects, they have a __str__ function built in so they print out pretty.
+                        print(f"{count}. {i.basic_view()}")
+
+                    item_id = input("Enter ID of skill you wish to add, or enter 'exit' to return to skill list inspection menu:\n").strip().lower()
+
+                    if item_id == 'exit':
+                        return
+
+                    found = False
+
+                    for i in available_skills:
+                        if item_id == i.id.lower():
+                            
+                            found = True
+                            self.inventory.append(item_id)
+
+                            for o in user_skills:
+                                if o.id.lower() == item_id:
+                                    user_skills.append(i)
+                                else:
+                                    pass
+
+                            print("Item succesfully added.")
+                            # after_action
+                            break
+
+                    if found != True:
+                        print("Please enter a valid ID.")
+                        # after_action()
+                        continue
+
+                    return
+                case '4':
+                    return
+                case _:
+                    print("Please enter 1, 2, 3, or 4.")
+                    # after_action
+
+def create_character(characters_list):
+    classes = ['Rouge','Fighter','Barbarian','Wizard','Warlock','Sorcerer','Bard']
+    races = {'Human':'Constitution','Elf':'Dexterity','Dwarf':'Strength','Dragonborn':'Wisdom','Gnome':'Intelligence','Halfling':'Charisma'}
+
+    # name
+    while True:
+        name = input("Enter name for your new character:\n").strip()
+        
+        check = input(f"Are you sure you want {name} to be your character's name? Y/N:\n").strip().lower()
+
+        if check != "y":
+            continue
+
+        break
+
+    # race
+    while True:
+        print("Available Races:")
+        for k,v in races.items():
+            print(f"{k} (+2 {v})")
+
+        race = input("Enter name of race you want for your character:\n").strip().capitalize()
+        if race not in races:
+            print("Please enter one of the displayed races.")
+            # after_action()
+            continue
+
+        break
+
+    # class
+    while True:
+        print("Available Classes:")
+        for i in classes:
+            print(i)
+
+        char_class = input("Please enter name of class you want your character to have:\n").strip().capitalize()
+
+        if char_class not in classes:
+            print("Please enter one of the displayed classes.")
+            # after_action()
+            continue
+
+        break
+
+    # attributes
+    while True:
+        strength = input("Enter value for strength stat:\n")
+
+        dexterity = input("Enter value for dexterity stat:\n")
+
+        constitution = input("Enter value for constitution stat:\n")
+
+        intelligence = input("Enter value for intelligence stat:\n")
+
+        wisdom = input("Enter value for wisdom stat:\n")
+
+        charisma = input("Enter value for charisma stat:\n")
+
+        attributes = {"Strength":strength,"Dexterity":dexterity,"Constitution":constitution,"Wisdom":wisdom,"Intelligence":intelligence,"Charisma":charisma}
+
+        fail = False
+
+        for k,v in attributes.items():
+            try:
+                v = int(v)
+            except:
+                print(f"You have input a non-numerical value for {k}. Please enter an actual number.")
+                fail = True
+                # after_action()
+                break
+            else:
+                pass
+
+        if fail == True:
+            continue
+
+        for k,v in attributes.items():
+            print(f"{k}: {v}")
+
+        verify = input("Verify these are the correct values Y/N:\n").strip().lower()
+
+        if verify != "y":
+            continue
+
+        break
+
+    # level
+    while True:
+        level = input("Enter level (between 1 - 20)of character:\n").strip()
+        try:
+            level = int(level)
+        except:
+            print("Please enter a numerical value between 1 and 20 for level.")
+            # after_action()
+            continue
+        else:
+            if level < 1 or level > 20:
+                print("Please enter a level between 1 and 20.")
+                # after_action()
+                continue
+            
+            break
+
+    try:
+        character_object = Character(name,char_class,race,level,attributes)
+    except:
+        print("There was an unexpected error in creating the character object.")
+        # after_action()
+        return
+    else:
+        print("Character created succesfully!")
+        # after_action
+        return character_object
+    
+
+def load_characters(characters_csv):
+    characters_list = []
+    for i in characters_csv:
+        character_attributes = {"Strength":"N/A","Dexterity":"N/A","Constitution":"N/A","Wisdom":"N/A","Intelligence":"N/A","Charisma":"N/A"}
+        attribute_values = i.attributes.split("|")
+        index = 0
+        for k in character_attributes.keys():
+            character_attributes[k] = attribute_values[index]
+            index += 1
+        
+        inventory = i.inventory.split("|")
+
+        skills = i.skills.split("|")
+
+        character_object = Character(i.name,i.char_class,i.race,i.level,character_attributes)
+        character_object.inventory = inventory
+        character_object.skills = skills
+
+        characters_list.append(character_object)
+
+    return characters_list
+
+
+
+        
