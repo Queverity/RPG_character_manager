@@ -2,6 +2,8 @@
 
 # from character_class import *
 
+import pandas as pd
+
 # define class StatisticalAnalyzer:
     # def __init__():
         # get list of character objects, load into panda dataframes (figure out what that means exactly)
@@ -20,3 +22,105 @@
 
     # define method creation_trends():
         # see how many of each class there is in the roster, as well as race
+
+class StatiscalAnalyzer:
+    def __init__(self,characters,character1,character2):
+        self.characters = characters
+        # note: character1 and character2 are just IDs to find the characters in the characters list.
+        self.character1 = character1
+        self.character2 = character2
+
+    def filter_data(self):
+        for i in self.characters:
+            i = vars(i)
+
+        characters_df = pd.DataFrame(self.characters)
+
+        while True:
+            print("How would you like to filter the character date?\n1. Name\n2. Race\n3. Class\n4. Level (anything equal to or above level is removed)\n5. Continue to Next Step")
+            choice = input("Enter number:\n").strip()
+
+            # clear_screen()
+
+            match choice:
+                case '1':
+                    name = input("Enter name you want to rmeove from dataset, or enter 'exit' to return to filtering menu:\n").strip().lower()
+
+                    if name == 'exit':
+                        continue
+
+                    df = df[name in df['name'].lower()]
+                    print("Name removed from dataset.")
+                    # after_action
+                    continue
+                case '2':
+                    while True:
+                        races = ['Human','Elf','Dwarf','Dragonborn','Gnome','Halfling']
+                        for i in races:
+                            print(i)
+
+                        race = input("Enter race you want to exclude from dataset, or enter 'exit' to return to filtering menu:\n").strip().capitalize()
+
+                        if race == 'Exit':
+                            break
+
+                        if race not in races:
+                            print("Please enter one of the displayed character races.")
+                            # after_action
+                            continue
+
+                        df = df[df['race'].capitalize() == race]
+                        print("Race removed from dataset.")
+                        # after_action()
+                        break
+
+                    continue
+                case '3':
+                    while True:
+                        classes = ['Fighter','Barbarian','Rouge','Wizard','Warlock','Sorcerer','Bard']
+                        for i in classes:
+                            print(i)
+
+                        char_class = input("Enter class you want to exclude from dataset, or enter 'exit' to return to filtering menu:\n").strip().capitalize()
+
+                        if char_class == 'Exit':
+                            break
+
+                        if char_class not in classes:
+                            print("Please enter one of the displayed character races.")
+                            # after_action
+                            continue
+
+                        df = df[df['char_class'].capitalize() == char_class]
+                        print("Class removed from dataset.")
+                        # after_action()
+                        break
+
+                    continue
+                case '4':
+                     while True:
+                        level = input("Enter level between 1 and 20 to remove from dataset (any character with this level or higher will be removed), or enter 'exit' to return to filtering menu:\n").strip().capitalize()
+
+                        if level == 'Exit':
+                            break
+
+                        try:
+                            level = int(level)
+                        except:
+                            print("Please enter a numerical value between 1 and 20.")
+                            # after_action()
+                            continue
+                        else:
+                            if level > 20 or level < 1:
+                                print("Please enter a numerical value between 1 and 20.")
+                                # after_action()
+                                continue
+                        
+
+                        df = df[df['level'].capitalize() >= level]
+                        print("Level removed from dataset.")
+                        # after_action()
+                        break
+                     continue
+                case '5':
+                    return characters_df
