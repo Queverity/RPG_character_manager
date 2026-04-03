@@ -1,4 +1,4 @@
-skill_name,skill_id,description,level_requirement,class_requirement
+name,id,description,level,classes
 Athletics,aaa,"Physical strength and endurance for climbing, jumping, and lifting.",1,All
 Acrobatics,aab,"Balance, flexibility, and agility in movement.",1,All
 Sleight of Hand,aac,"Quick hand tricks for stealing or manipulating objects.",1,All

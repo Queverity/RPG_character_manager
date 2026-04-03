@@ -1,5 +1,7 @@
 # CB 1st Saving Parsing Characters
 
+import csv
+
 # define function load_characters():
     # use with open to open characters file so it will close on its own
     # go through file, add each row to a list, then return so each dict can be made into a character object
@@ -25,3 +27,68 @@
 # define function save_items(items):
     # use with open to open items file so it will close on its own
     # go through list of item objects, turn into dictionaries, and save
+
+def load_characters():
+    character_list = []
+    with open("documents/characters.csv",mode="r",newline="") as characters:
+        fieldnames = ['name','id','class','level','race','attribute','skills','inventory']
+        reader = csv.DictReader(characters,fieldnames)
+        next(reader)
+
+        for i in reader:
+            character_list.append(i)
+
+    return character_list
+
+def save_characters(characters):
+    with open("documents/characters.csv",mode="w",newline="") as characters:
+        fieldnames = ['name','id','class','level','race','attribute','skills','inventory']
+        writer = csv.DictWriter(characters,fieldnames)
+        basic_writer = csv.writer(characters)
+
+        basic_writer.writerow(fieldnames)
+
+        for i in characters:
+            "|".join(i.attributes)
+            "|".join(i.inventory)
+            "|".join(i.skills)
+
+            writer.writerow(vars(i))
+
+def load_skills():
+    skills_list = []
+    with open("documents/skills.csv",mode="r",newline="") as skills:
+        fieldnames = ['name','id','description','level','classes']
+        reader = csv.DictReader(skills,fieldnames)
+
+        for i in reader:
+            skills_list.append(i)
+
+        return skills_list
+
+def save_skill(skill_object):
+    with open("documents/skills.csv",mode="a",newline="") as skills:
+        fieldnames = ['name','id','description','level','classes']
+        writer = csv.DictWriter(skills,fieldnames)
+
+        writer.writerow(vars(skill_object))
+
+
+def load_items():
+    items_list = []
+    with open("documents/items.csv",mode="r",newline="") as items:
+        fieldnames = ['name','id','description','value','weight','classes']
+        reader = csv.DictReader(items,fieldnames)
+
+        for i in reader:
+            items_list.append(i)
+
+        return items_list
+
+def save_item(item_object):
+    with open("documents/items.csv",mode="a",newline="") as items:
+        fieldnames = ['name','id','description','value','weight','classes']
+        writer = csv.DictWriter(items,fieldnames)
+
+        writer.writerow(vars(item_object))
+

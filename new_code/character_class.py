@@ -36,8 +36,9 @@
     # once creation is done, first create character object, then save to character CSV
 
 class Character:
-    def __init__(self,name,char_class,race,level,attributes = {"Strength":10,"Dexterity":10,"Constitution":10,"Wisdom":10,"Intelligence":10,"Charisma":10}):
+    def __init__(self,name,id,char_class,race,level,attributes = {"Strength":10,"Dexterity":10,"Constitution":10,"Wisdom":10,"Intelligence":10,"Charisma":10}):
         self.name = name
+        self.id = id
         self.char_class = char_class
         self.race = race
         self.level = level
@@ -426,6 +427,16 @@ def create_character(characters_list):
 
         break
 
+    # id
+    while True:
+        id = input("Enter ID for character:\n").strip().upper()
+        for i in characters_list:
+            if i.id.upper() == id:
+                print("There is already a saved character with that id. Please enter a different id.")
+                continue
+        
+        break
+
     # race
     while True:
         print("Available Races:")
@@ -515,7 +526,7 @@ def create_character(characters_list):
             break
 
     try:
-        character_object = Character(name,char_class,race,level,attributes)
+        character_object = Character(name,id,char_class,race,level,attributes)
     except:
         print("There was an unexpected error in creating the character object.")
         # after_action()
@@ -526,7 +537,7 @@ def create_character(characters_list):
         return character_object
     
 
-def load_characters(characters_csv):
+def create_character_objects(characters_csv):
     characters_list = []
     for i in characters_csv:
         character_attributes = {"Strength":"N/A","Dexterity":"N/A","Constitution":"N/A","Wisdom":"N/A","Intelligence":"N/A","Charisma":"N/A"}

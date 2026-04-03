@@ -1,4 +1,4 @@
-item_name,item_id,description,value,weight,class_requirement
+name,id,description,value,weight,classes
 Daggers,aaa,"A pair of daggers that deal 1d4 damage.",5 ,2,Rogue
 Rapier,aab,"An old European sword with a thin, fast blade that deals 1d8 damage.",25,3,Rogue
 Leather Armor,aac,"Basic leather armor that provides an AC of 11 + Dex Modifier.",10,10,Rogue
