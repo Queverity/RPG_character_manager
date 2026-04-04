@@ -47,7 +47,7 @@ class Character:
         self.attributes = attributes
 
     def __str__(self):
-        return f"{self.name}, Level {self.level} {self.race} {self.char_class}"
+        return f"{self.name}, Level {self.level} {self.race} {self.char_class} (ID: {self.id})"
     
     def level_up(self):
         print("You have gained another skill slot.")
@@ -164,8 +164,8 @@ class Character:
                 # Since these are Item class objects, they have a __str__ function built in so they print out pretty.
                 print(f"{count}. {i.basic_view()}")
 
-            print("What would you like to do with your character's inventory?\n1. Inspect Item\n2. Remove Item\n3. Add Item\n4. Return to Character Inspection Menu")
-            choice = input("Enter number:\n").strip()
+            print("What would you like to do with your character's inventory?\n[1] Inspect Item\n[2] Remove Item\n[3]Add Item\n[R] Return to Character Inspection Menu")
+            choice = input("Enter number:\n").strip().capitalize()
 
             # clear_screen()
 
@@ -277,10 +277,10 @@ class Character:
                         continue
 
                     return
-                case '4':
+                case 'R':
                     return
                 case _:
-                    print("Please enter 1, 2, 3, or 4.")
+                    print("Please enter one of the displayed options.")
                     # after_action
 
     def edit_skills(self,skills_list):
@@ -298,8 +298,8 @@ class Character:
                 # Since these are Item class objects, they have a __str__ function built in so they print out pretty.
                 print(f"{count}. {i.basic_view()}")
 
-            print("What would you like to do with your character's inventory?\n1. Inspect Item\n2. Remove Item\n3. Add Item\n4. Return to Character Inspection Menu")
-            choice = input("Enter number:\n").strip()
+            print("What would you like to do with your character's inventory?\n[1] Inspect Item\n[2] Remove Item\n[3] Add Item\n[R] Return to Character Inspection Menu")
+            choice = input("Enter number:\n").strip().capitalize()
 
             # clear_screen()
 
@@ -406,11 +406,12 @@ class Character:
                         continue
 
                     return
-                case '4':
+                case 'R':
                     return
                 case _:
-                    print("Please enter 1, 2, 3, or 4.")
+                    print("Please enter one of the displayed options.")
                     # after_action
+                    continue
 
 def create_character(characters_list):
     classes = ['Rouge','Fighter','Barbarian','Wizard','Warlock','Sorcerer','Bard']

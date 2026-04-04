@@ -80,27 +80,17 @@ class RandomGenerator():
     "become a master of their craft"
 ]
 
-        quest_categories = ['Fetch','Slay','Escort','Craft','Courier','Stealth']
-        stealth_types = ['Recon','Steal','Assassination','Sabotage']
-
-        monsters = ['Dragon', 'Necromancer', 'Goblin Warlord', 'Frost Giant', 'Shadow Wraith']
-
-        fetch_items = ['Ancient Relic', 'Healing Herb Bundle', 'Enchanted Gemstone', 'Lost Spell Tome', 'Royal Signet Ring']
-
-        escortees = ['Nervous Merchant', 'Wounded Knight', 'Young Noble', 'Traveling Scholar', 'Mystic Seer']
-
-        crafting_items = ['Iron Ore', 'Phoenix Feather', 'Arcane Crystal', 'Leather Strips', 'Obsidian Shard']
-
-        message_types = ['Secret Letter', 'Royal Decree', 'Encrypted Scroll', 'War Dispatch', 'Love Letter']
-
-        info = ['Enemy Troop Movements', 'Hidden Treasure Location', 'Ancient Ritual Details', 'Spy Network Contacts', 'Dungeon Layout Map']
-
-        steal_items = ['Jeweled Crown', 'Vault Key', 'Ancient Artifact', 'Bag of Gold Coins', 'Magical Amulet']
-
-        assassin_targets = ['Corrupt Noble', 'Enemy General', 'Rogue Wizard', 'Crime Lord', 'Traitorous Guard Captain']
-
-        sabotage_actions = ['Burn Supply Wagons', 'Poison Water Source', 'Destroy Bridge', 'Disable Siege Weapons', 'Cut Communication Lines']
-
+        quests = {
+            'fetch':['Powerful Dragon', 'Corruped Necromancer', 'Goblin Warlord', 'Frost Giant', 'Shadow Wraith'],
+            'slay':['Ancient Relic', 'Healing Herb Bundle', 'Enchanted Gemstone', 'Lost Spell Tome', 'Royal Signet Ring'],
+            'escort':['Nervous Merchant', 'Wounded Knight', 'Young Noble', 'Traveling Scholar', 'Mystic Seer']
+            ,'craft':['Powerful Sword','Vital Potion','Mysterious Amulet','Gun','Magical Armor'],
+            'ccourier':['Secret Letter', 'Royal Decree', 'Encrypted Scroll', 'War Dispatch', 'Love Letter'],
+            'recon':['Enemy Troop Movements', 'Hidden Treasure Location', 'Ancient Ritual Details', 'Spy Network Contacts', 'Dungeon Layout Map'],
+            'steal':['Jeweled Crown', 'Vault Key', 'Ancient Artifact', 'Bag of Gold Coins', 'Magical Amulet'],
+            'assassinate':['Corrupt Noble', 'Enemy General', 'Rogue Wizard', 'Crime Lord', 'Traitorous Guard Captain'],
+            'sabotage':['Burn Supply Wagons', 'Poison Water Source', 'Destroy Bridge', 'Disable Siege Weapons', 'Cut Communication Lines']}
+        
         self.characters = characters
 
 
@@ -147,15 +137,24 @@ class RandomGenerator():
             character_object = Character(name,id,char_class,race,level)
 
             print("Character succesfully generated!")
+            print("Note: Character does not come preloaded with inventory items and skills chosen; You will have to do that yourself.")
             print(backstory)
 
             # after_action()
 
             return character_object
 
-
-
-        
-
     def generate_quest(self):
-        pass
+        quest_type = random.choice(self.quests.keys)
+        quest_focus = random.choice(self.quests[quest_type])
+        if quest_type not in ['craft','slay']]:
+            city = faker.city_name(it_IT)
+        quest_giver = faker.first_name()
+
+        if quest_type not in ['craft','slay']:
+            print(f"You have been given a {quest_type} by a mysterious person named {quest_giver}. The goal of this quest is to {quest_type} the/a {quest_focus}. Your target will be found in the city of {city}")
+        else:
+            print(f"You have given a {quest_type} by a mysterious person named {quest_giver}. The goal of this quest is to {quest_type} the/a {quest_focus}. To gather information on how to proceed, talk to the locals.")
+
+        # after_action
+        return

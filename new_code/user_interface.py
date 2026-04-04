@@ -1,5 +1,14 @@
 # CB 1st User Interface
 
+from character_class import *
+from data_visulisation import *
+from item_class import *
+from random_generator import *
+from saving_parsing import *
+from skill_class import *
+from statistacal_analysis import *
+
+
 # define function visulalisation_menu():
     # ask user what they would like to visualize (single character stats [bar chart, radar chart], compare characters, stuff like that)
     # if compare characters, have user choose two seperate characters, visulalize stats and also print out a few other things
@@ -22,7 +31,7 @@
     # generate character object based off of input information, display user (for inventory and skills, just pick randomly from available things)
 
 # define function inspect_character(character_object):
-    # this iwl lbe for viewing a single character
+    # this will lbe for viewing a single character
     # give user a few options on how to inspect character (inventory, attributes, skills, character details)
     # match-case uesr input
     # if inventory, show user inventory, give options to add/remove items from inventory
@@ -46,4 +55,83 @@
 # define function main_menu():
     # whlie True:
         # give user options to view characters, stat analyze characters, visualize character attributes, compare characters, create a character, generate a character, and a few more (also save characters, though I might do that automatically)
+def inspect_character(characters,skills,items):
+    for i in characters:
+                print(i)
 
+                id = input("Enter ID of character you want to inspect:\n").strip().upper()
+
+                found = False
+                # clear_screen()
+
+                for char in characters:
+                    if char.id.upper() == id:
+                        found = True
+                        print(f"How would you like to inspect/manage {char.name}?\n[1] Inspect Inventory\n[2] Inspect Skills\n[3] Inspect Stats\n[4] Inspect Basic Details\n\n[R] Return to Main Menu")
+
+                        choice = input("Enter choice:\n").strip().capitalize()
+
+                        match choice:
+                            case '1':
+                                char.edit_inventory(items)
+                                continue
+                            case '2':
+                                char.edit_skills(skills)
+                            case '3':
+                                pass
+                            case '4':
+                                pass
+                            case 'R':
+                                return
+                            case _:
+                                print("Please enter of the displayed options.")
+                                # after_action()
+                                continue
+    
+def main_menu():
+    characters_csv = load_characters()
+    skills_csv = load_skills()
+    items_csv = load_items()
+
+    characters = create_character_objects(characters_csv)
+    skills = load_skills(skills_csv)
+    items = load_items(items_csv)
+
+
+    print("Welcome to the Enhanced RPG Character Manager. Using this program, you can create characters, save characters, compare them, statistically analyze them, and do much, much more! You are also givne the ability to randomly generate characters, as well as quests! Note: This is not a game in itself. It is a program intended to hold characters for different games.")
+
+
+
+    while True:
+        print("What would you like to do?\nCHARACTER FEATURES\n[1] Create Character\n[2] Inspect Character\n[3] Random Generator\n\nDATA & ANALYSIS\n[4] Character Visualisation\n[5] Statistical Analysis\n[6] Character Comparison Tools\n\nSKILL AND ITEM MANAGEMENT\n[7] Add Skill to Database\n[8] Add Item to Database\n\nDATA MANAGEMENT\n[9] Save Current Characters\n\n[Q] Quit")
+
+        choice = input("Enter choice:\n").strip().capitalize()
+
+        # clear_screen
+
+        match choice:
+            case '1':
+                character_object = create_character(characters)
+                characters.append(character_object)
+            case '2':
+                pass
+            case '3':
+                pass
+            case '4':
+                pass
+            case '5':
+                pass
+            case '6':
+                pass
+            case '7':
+                pass
+            case '8':
+                pass
+            case '9':
+                pass
+            case 'Q':
+                pass
+            case _:
+                print("Please enter one of the displayed options.")
+                # after_action()
+                continue
