@@ -3,6 +3,7 @@
 # from character_class import *
 
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # define class StatisticalAnalyzer:
     # def __init__():
@@ -124,3 +125,55 @@ class StatiscalAnalyzer:
                      continue
                 case '5':
                     return characters_df
+
+    def roster_statistics(self):
+        roster_attributes = []
+        for i in self.characters:
+            roster_attributes.append(i.attributes)
+
+        df = pd.DataFrame(roster_attributes)
+
+        print(df.describe())
+
+        df.boxplot()
+        plt.show()
+
+    
+
+    def compare_characters(self):
+        character1_stats = self.character1.attributes
+        character1_df = pd.DataFrame(character1_stats)
+        character2_stats = self.character2.attributes
+        character2_df = pd.DateFrame(character2_stats)
+
+        print(character1_df.describe())
+        print(character2_df.describe())
+
+        character1_df.boxplot()
+
+        character2_df.boxplot()
+
+        print(self.character1)
+        print(self.character2)
+
+    def creation_trends(self):
+        races = []
+        classes = []
+
+        for i in self.characters:
+            races.append(i.race)
+            classes.append(i.char_class)
+
+        races_df = pd.DataFrame({"Race": races})
+        classes_df = pd.DataFrame({"Class": classes})
+
+        races_mode = races_df["Race"].mode()
+        classes_mode = classes_df["Class"].mode()
+
+        print(f"Most commmon race: {races_mode}")
+        print(f"Most common class: {classes_mode}")
+
+        print("To see stat averages, look at roster statistics.")
+        # after_action()
+        return
+
