@@ -18,8 +18,8 @@ import numpy as np
         # take attribute information from two characters, generate a bar graph with each attribute side by side, assign a color to each character so it is readable, and return that bar graph
 
 class DataVisulisation:
-    def __init__(self,categories,character1,character2):
-        self.categories = categories
+    def __init__(self,character1,character2):
+        self.categories = ['Strength','Dexterity','Constitution','Wisdom','Intelligence','Charisma']
         self.character1 = character1
         self.character2 = character2
 

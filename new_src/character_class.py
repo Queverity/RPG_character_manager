@@ -49,6 +49,14 @@ class Character:
     def __str__(self):
         return f"{self.name}, Level {self.level} {self.race} {self.char_class} (ID: {self.id})"
     
+    def display_stats(self):
+        for k,v in self.attributes:
+            print(f"{k}: {v}")
+
+        print("Note: Stats cannot be changed from this menu. You can gain +1 to a stat of your choosing per level.")
+        # after_action()
+        return
+
     def level_up(self):
         print("You have gained another skill slot.")
 

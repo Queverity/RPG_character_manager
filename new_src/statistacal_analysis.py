@@ -27,7 +27,6 @@ import matplotlib.pyplot as plt
 class StatiscalAnalyzer:
     def __init__(self,characters,character1,character2):
         self.characters = characters
-        # note: character1 and character2 are just IDs to find the characters in the characters list.
         self.character1 = character1
         self.character2 = character2
 
@@ -137,8 +136,6 @@ class StatiscalAnalyzer:
 
         df.boxplot()
         plt.show()
-
-    
 
     def compare_characters(self):
         character1_stats = self.character1.attributes

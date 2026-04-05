@@ -93,4 +93,4 @@ def create_skill(skills_list):
     else:
         print("Skill created and saved succesfully!")
         # after_action()
-        return
+        return skills_list

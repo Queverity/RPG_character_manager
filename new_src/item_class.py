@@ -101,4 +101,4 @@ def create_item(items_list):
     else:
         print("Item created and saved succesfully!")
         # after_action()
-        return
+        return items_list

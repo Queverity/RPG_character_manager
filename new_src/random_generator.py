@@ -134,7 +134,7 @@ class RandomGenerator():
             
             level = 1
 
-            character_object = Character(name,id,char_class,race,level)
+            character_object = Character(name,id,char_class,race,level,char_attributes)
 
             print("Character succesfully generated!")
             print("Note: Character does not come preloaded with inventory items and skills chosen; You will have to do that yourself.")
@@ -147,7 +147,7 @@ class RandomGenerator():
     def generate_quest(self):
         quest_type = random.choice(self.quests.keys)
         quest_focus = random.choice(self.quests[quest_type])
-        if quest_type not in ['craft','slay']]:
+        if quest_type not in ['craft','slay']:
             city = faker.city_name(it_IT)
         quest_giver = faker.first_name()
 
