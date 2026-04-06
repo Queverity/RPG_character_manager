@@ -30,7 +30,7 @@ import csv
 
 def load_characters():
     character_list = []
-    with open("documents/characters.csv",mode="r",newline="") as characters:
+    with open("documents\characters.csv",mode="r",newline="") as characters:
         fieldnames = ['name','id','class','level','race','attribute','skills','inventory']
         reader = csv.DictReader(characters,fieldnames)
         next(reader)
