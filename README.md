@@ -8,11 +8,10 @@ This is a program that lets the user save, inspect, and manage various differnt 
 4. Run from main.py in new_src.
 
 # Features
--
--
--
--
--
+- Manage, inspect, and compare characters
+- Save items, skills, and characters
+- Visually analyze character stats
+- Statistically analyze character roster
 
 # Contributors
 - Queverity
