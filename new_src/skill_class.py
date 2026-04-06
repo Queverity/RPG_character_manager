@@ -1,6 +1,8 @@
 # CB 1st Skill Class
 
 import csv
+from helper import *
+from saving_parsing import save_skill
 
 # class Skill:
     # define method __init__:
@@ -34,10 +36,10 @@ class Skill:
     def basic_view(self):
         return f"{self.name} ({self.id})"
     
-def load_items(skills):
+def load_skill_objects(skills):
     skills_list = []
-    for _ in skills:
-        skill_object = (skills['skills_name'],skills['skill_id'],skills['description'],skills['level_requirement'],skills['class_requirement'])
+    for i in skills:
+        skill_object = (i['name'],i['id'],i['description'],i['level'],i['classes'])
         skills_list.append(skill_object)
 
     return skills_list
@@ -82,15 +84,11 @@ def create_skill(skills_list):
     skill_object = Skill(name,id,description,level,class_requirement)
     skills_list.append(skill_object)
     try:
-        with open('documents/skills.csv',mode='a',newline="") as skills:
-            fieldnames = ['name','id','description','level_requirement','class_requirement']
-            writer = csv.DictWriter(skills,fieldnames)
-
-            writer.writerow(vars(skill_object))
+        save_skill(skill_object)
     except:
         print("Failed to create skill; Unexpected error has occured")
         return
     else:
         print("Skill created and saved succesfully!")
-        # after_action()
+        after_action()
         return skills_list

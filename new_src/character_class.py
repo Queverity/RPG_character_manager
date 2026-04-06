@@ -1,6 +1,9 @@
 # CB 1st Character Class
 
 # import  item_class and skill_class
+from item_class import *
+from skill_class import *
+from helper import *
 
 # Class Character:
     # define method __init__(self):
@@ -54,7 +57,7 @@ class Character:
             print(f"{k}: {v}")
 
         print("Note: Stats cannot be changed from this menu. You can gain +1 to a stat of your choosing per level.")
-        # after_action()
+        after_action()
         return
 
     def level_up(self):
@@ -74,12 +77,12 @@ class Character:
                 test = self.attributes[stat]
             except:
                 print("Please enter a valid stat.")
-                # after_action()
+                after_action()
                 continue
             else:
                 self.attributes[stat] += 1
                 print(f"{stat} has been increased by 1.")
-                # after_action()
+                after_action()
                 return
 
     def find_items(self,items_list):
@@ -175,7 +178,7 @@ class Character:
             print("What would you like to do with your character's inventory?\n[1] Inspect Item\n[2] Remove Item\n[3]Add Item\n[R] Return to Character Inspection Menu")
             choice = input("Enter number:\n").strip().capitalize()
 
-            # clear_screen()
+            clear_screen()
 
             match choice:
                 case '1':
@@ -193,7 +196,7 @@ class Character:
                     for i in user_inventory:
                         if i.id.lower() == item_id:
                             print(i)
-                            # after_action()
+                            after_action()
                             break
                     
                     continue
@@ -201,7 +204,7 @@ class Character:
                 case '2':
                     if bool(self.inventory) == False:
                         print("You have no items in your inventory.")
-                        # after_action
+                        after_action()
                         continue
 
                     count = 0
@@ -229,12 +232,12 @@ class Character:
                                     pass
 
                             print("Item succesfully removed.")
-                            # after_action
+                            after_action()
                             break
 
                     if found != True:
                         print("Please enter a valid ID.")
-
+                        continue
                     return
 
 
@@ -243,7 +246,7 @@ class Character:
 
                     if inventory_weight >= self.attributes['Strength'] * 15:
                         print("You have too much weight in your inventory to carry anything else.")
-                        # after_action()
+                        after_action()
                         return
 
                     count = 0
@@ -277,7 +280,7 @@ class Character:
                                     pass
 
                             print("Item succesfully added.")
-                            # after_action
+                            after_action()
                             break
 
                     if found != True:
@@ -289,7 +292,7 @@ class Character:
                     return
                 case _:
                     print("Please enter one of the displayed options.")
-                    # after_action
+                    after_action()
 
     def edit_skills(self,skills_list):
         available_skills = self.find_skills(skills_list)
@@ -309,7 +312,7 @@ class Character:
             print("What would you like to do with your character's inventory?\n[1] Inspect Item\n[2] Remove Item\n[3] Add Item\n[R] Return to Character Inspection Menu")
             choice = input("Enter number:\n").strip().capitalize()
 
-            # clear_screen()
+            clear_screen()
 
             match choice:
                 case '1':
@@ -327,7 +330,7 @@ class Character:
                     for i in user_skills:
                         if i.id.lower() == item_id:
                             print(i)
-                            # after_action()
+                            after_action()
                             break
                     
                     continue
@@ -335,7 +338,7 @@ class Character:
                 case '2':
                     if bool(self.skills) == False:
                         print("You have no skills in your inventory.")
-                        # after_action
+                        after_action()
                         continue
 
                     count = 0
@@ -363,7 +366,7 @@ class Character:
                                     pass
 
                             print("Skill succesfully removed.")
-                            # after_action
+                            after_action()
                             break
 
                     if found != True:
@@ -405,12 +408,12 @@ class Character:
                                     pass
 
                             print("Item succesfully added.")
-                            # after_action
+                            after_action()
                             break
 
                     if found != True:
                         print("Please enter a valid ID.")
-                        # after_action()
+                        after_action()
                         continue
 
                     return
@@ -418,7 +421,7 @@ class Character:
                     return
                 case _:
                     print("Please enter one of the displayed options.")
-                    # after_action
+                    after_action()
                     continue
 
 def create_character(characters_list):
@@ -429,6 +432,11 @@ def create_character(characters_list):
     while True:
         name = input("Enter name for your new character:\n").strip()
         
+        if bool(name) == False:
+            print("This is a required field.")
+            after_action()
+            continue
+
         check = input(f"Are you sure you want {name} to be your character's name? Y/N:\n").strip().lower()
 
         if check != "y":
@@ -436,15 +444,23 @@ def create_character(characters_list):
 
         break
 
+    clear_screen()
+
     # id
     while True:
         id = input("Enter ID for character:\n").strip().upper()
+        if bool(id) == False:
+            print("This field is required.")
+            after_action()
+            continue
         for i in characters_list:
             if i.id.upper() == id:
                 print("There is already a saved character with that id. Please enter a different id.")
                 continue
         
         break
+
+    clear_screen()
 
     # race
     while True:
@@ -455,10 +471,12 @@ def create_character(characters_list):
         race = input("Enter name of race you want for your character:\n").strip().capitalize()
         if race not in races:
             print("Please enter one of the displayed races.")
-            # after_action()
+            after_action()
             continue
 
         break
+
+    clear_screen()
 
     # class
     while True:
@@ -470,10 +488,12 @@ def create_character(characters_list):
 
         if char_class not in classes:
             print("Please enter one of the displayed classes.")
-            # after_action()
+            after_action()
             continue
 
         break
+
+    clear_screen()
 
     # attributes
     while True:
@@ -499,7 +519,7 @@ def create_character(characters_list):
             except:
                 print(f"You have input a non-numerical value for {k}. Please enter an actual number.")
                 fail = True
-                # after_action()
+                after_action()
                 break
             else:
                 pass
@@ -517,6 +537,8 @@ def create_character(characters_list):
 
         break
 
+    clear_screen()
+
     # level
     while True:
         level = input("Enter level (between 1 - 20)of character:\n").strip()
@@ -524,25 +546,27 @@ def create_character(characters_list):
             level = int(level)
         except:
             print("Please enter a numerical value between 1 and 20 for level.")
-            # after_action()
+            after_action()
             continue
         else:
             if level < 1 or level > 20:
                 print("Please enter a level between 1 and 20.")
-                # after_action()
+                after_action()
                 continue
             
             break
+
+    clear_screen()
 
     try:
         character_object = Character(name,id,char_class,race,level,attributes)
     except:
         print("There was an unexpected error in creating the character object.")
-        # after_action()
+        after_action()
         return
     else:
         print("Character created succesfully!")
-        # after_action
+        after_action()
         return character_object
     
 
@@ -563,6 +587,11 @@ def create_character_objects(characters_csv):
         character_object = Character(i.name,i.char_class,i.race,i.level,character_attributes)
         character_object.inventory = inventory
         character_object.skills = skills
+
+        i.level = int(i.level)
+
+        for i in character_attributes:
+            i = int(i)
 
         characters_list.append(character_object)
 

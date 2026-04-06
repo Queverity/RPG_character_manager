@@ -30,7 +30,7 @@ import csv
 
 def load_characters():
     character_list = []
-    with open("documents\characters.csv",mode="r",newline="") as characters:
+    with open("RPG_character_manager\\documents\\characters.csv",mode="r",newline="") as characters:
         fieldnames = ['name','id','class','level','race','attribute','skills','inventory']
         reader = csv.DictReader(characters,fieldnames)
         next(reader)
@@ -41,7 +41,7 @@ def load_characters():
     return character_list
 
 def save_characters(characters):
-    with open("documents/characters.csv",mode="w",newline="") as characters:
+    with open("RPG_character_manager\\documents\\characters.csv",mode="w",newline="") as characters:
         fieldnames = ['name','id','class','level','race','attribute','skills','inventory']
         writer = csv.DictWriter(characters,fieldnames)
         basic_writer = csv.writer(characters)
@@ -49,15 +49,18 @@ def save_characters(characters):
         basic_writer.writerow(fieldnames)
 
         for i in characters:
-            "|".join(i.attributes)
-            "|".join(i.inventory)
-            "|".join(i.skills)
+            i = vars(i)
 
-            writer.writerow(vars(i))
+        for i in characters:
+            "|".join(i['attributes'])
+            "|".join(i['inventory'])
+            "|".join(i['skills'])
+
+            writer.writerow(i)
 
 def load_skills():
     skills_list = []
-    with open("documents/skills.csv",mode="r",newline="") as skills:
+    with open("RPG_character_manager\\documents\\skills.csv",mode="r",newline="") as skills:
         fieldnames = ['name','id','description','level','classes']
         reader = csv.DictReader(skills,fieldnames)
 
@@ -67,7 +70,7 @@ def load_skills():
         return skills_list
 
 def save_skill(skill_object):
-    with open("documents/skills.csv",mode="a",newline="") as skills:
+    with open("RPG_character_manager\\documents\\skills.csv",mode="a",newline="") as skills:
         fieldnames = ['name','id','description','level','classes']
         writer = csv.DictWriter(skills,fieldnames)
 
@@ -76,7 +79,7 @@ def save_skill(skill_object):
 
 def load_items():
     items_list = []
-    with open("documents/items.csv",mode="r",newline="") as items:
+    with open("RPG_character_manager\\documents\\items.csv",mode="r",newline="") as items:
         fieldnames = ['name','id','description','value','weight','classes']
         reader = csv.DictReader(items,fieldnames)
 
@@ -86,7 +89,7 @@ def load_items():
         return items_list
 
 def save_item(item_object):
-    with open("documents/items.csv",mode="a",newline="") as items:
+    with open("RPG_character_manager\\documents\\items.csv",mode="a",newline="") as items:
         fieldnames = ['name','id','description','value','weight','classes']
         writer = csv.DictWriter(items,fieldnames)
 

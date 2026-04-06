@@ -1,6 +1,8 @@
 # CB 1st Item Class
 
 import csv
+from helper import *
+from saving_parsing import save_item
 
 # class Item:
     # define method __init__(self):
@@ -33,10 +35,10 @@ class Item:
     def basic_view(self):
         return f"{self.name} ({self.id})"
     
-def load_items(items):
+def load_item_objects(items):
     items_list = []
-    for _ in items:
-        item_object = Item(items['item_name'],items['item_id'],items['description'],items['value'],items['weight'],items['class_requirement'])
+    for i in items:
+        item_object = Item(i['name'],i['id'],i['description'],i['value'],i['weight'],i['classes'])
         items_list.append(item_object)
 
     return items_list
@@ -90,15 +92,11 @@ def create_item(items_list):
     item_object = Item(name,id,description,value,weight,class_requirement)
     items_list.append(item_object)
     try:
-        with open('documents/items.csv',mode='a',newline="") as items:
-            fieldnames = ['name','id','description','value','weight','class_requirement']
-            writer = csv.DictWriter(items,fieldnames)
-
-            writer.writerow(vars(item_object))
+        save_item(item_object)
     except:
         print("Failed to create item; Unexpected error has occured")
         return
     else:
         print("Item created and saved succesfully!")
-        # after_action()
+        after_action()
         return items_list

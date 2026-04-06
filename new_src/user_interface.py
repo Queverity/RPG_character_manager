@@ -64,6 +64,7 @@ def choose_characters(characters,mode):
 
     if bool(characters) == False:
         print("You have no characters currently saved.")
+        after_action()
         return "No"
 
     for i in characters:
@@ -125,6 +126,10 @@ def choose_characters(characters,mode):
     
 def character_visualisation(characters):
     char = choose_characters(characters,1)
+
+    if char == "No":
+        return
+
     visualizer = DataVisulisation(char,"N/A")
     print("Generating stats chart...")
     visualizer.single_plt()
@@ -163,6 +168,10 @@ def stats_analyze(characters):
 
 def character_comparison(characters):
     char1,char2 = choose_characters(characters,2)
+
+    if char1 == "No" or char2 == "No":
+        return
+
     visualizer = DataVisulisation(char1,char2)
     analyzer = StatiscalAnalyzer(characters,char1,char2)
 
@@ -221,6 +230,10 @@ def generator_menu(characters):
     
 def inspect_character(characters,skills,items):
     char = choose_characters(characters,1)
+
+    if char == "No":
+        return
+
     while True:
         print(f"How would you like to inspect/manage {char.name}?\n[1] Inspect Inventory\n[2] Inspect Skills\n[3] Inspect Stats\n[4] Inspect Basic Details\n\n[R] Return to Main Menu")
 
@@ -307,13 +320,14 @@ def inspect_character(characters,skills,items):
                 continue
     
 def main_menu():
+    print("Loading...")
     characters_csv = load_characters()
     skills_csv = load_skills()
     items_csv = load_items()
 
     characters = create_character_objects(characters_csv)
-    skills = load_skills(skills_csv)
-    items = load_items(items_csv)
+    skills = load_skill_objects(skills_csv)
+    items = load_item_objects(items_csv)
 
 
     print("Welcome to the Enhanced RPG Character Manager. Using this program, you can create characters, save characters, compare them, statistically analyze them, and do much, much more! You are also givne the ability to randomly generate characters, as well as quests! Note: This is not a game in itself. It is a program intended to hold characters for different games.")
@@ -321,12 +335,12 @@ def main_menu():
 
 
     while True:
-        # clear_screen()
+        clear_screen()
         print("What would you like to do?\nCHARACTER FEATURES\n[1] Create Character\n[2] Inspect Character\n[3] Random Generator\n\nDATA & ANALYSIS\n[4] Visualize Character Stats\n[5] Statistical Analysis\n[6] Character Comparison Tools\n\nSKILL AND ITEM MANAGEMENT\n[7] Add Skill to Database\n[8] Add Item to Database\n\nDATA MANAGEMENT\n[9] Save Current Characters\n\n[Q] Quit")
 
         choice = input("Enter choice:\n").strip().capitalize()
 
-        # clear_screen
+        clear_screen()
 
         match choice:
             case '1':
@@ -356,7 +370,7 @@ def main_menu():
             case '9':
                 save_characters(characters)
                 print("Character databse saved.")
-                # after_action
+                after_action()
                 continue
             case 'Q':
                 check = input("Any unsaved data will be lost. Are you sure you want to quit? Y/N:\n").strip().upper()
@@ -367,5 +381,5 @@ def main_menu():
                     break
             case _:
                 print("Please enter one of the displayed options.")
-                # after_action()
+                after_action()
                 continue

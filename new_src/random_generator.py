@@ -22,10 +22,9 @@ fake = Faker()
 class RandomGenerator():
     def __init__(self,characters):
         # info for backgrounds and character
-        races = ["Human", "Elf", "Dwarf", "Dragonborn", "Gnome", "Halfling"]
-        classes = ['Fighter','Barbarian','Rouge','Warlock','Sorcerer','Wizard','Bard']
+        
 
-        traits = [
+        self.traits = [
     "fiercely loyal", "haunted by visions", "hungry for power",
     "kind-hearted", "vengeful", "cursed from birth",
     "recklessly brave", "obsessive", "mysterious", "stoic",
@@ -35,7 +34,7 @@ class RandomGenerator():
     "altruistic", "morally conflicted", "untrusting", "loyal to a fault"
 ]
 
-        events = [
+        self.events = [
             "their family was slain by a mysterious force",
             "they discovered a forbidden magical artifact",
             "they were exiled for a crime they didn’t commit",
@@ -55,7 +54,7 @@ class RandomGenerator():
             "they survived an encounter with a legendary beast"
         ]
 
-        goals = [
+        self.goals = [
     "seek revenge",
     "uncover the truth",
     "restore their homeland",
@@ -80,7 +79,7 @@ class RandomGenerator():
     "become a master of their craft"
 ]
 
-        quests = {
+        self.quests = {
             'fetch':['Powerful Dragon', 'Corruped Necromancer', 'Goblin Warlord', 'Frost Giant', 'Shadow Wraith'],
             'slay':['Ancient Relic', 'Healing Herb Bundle', 'Enchanted Gemstone', 'Lost Spell Tome', 'Royal Signet Ring'],
             'escort':['Nervous Merchant', 'Wounded Knight', 'Young Noble', 'Traveling Scholar', 'Mystic Seer']
@@ -92,6 +91,7 @@ class RandomGenerator():
             'sabotage':['Burn Supply Wagons', 'Poison Water Source', 'Destroy Bridge', 'Disable Siege Weapons', 'Cut Communication Lines']}
         
         self.characters = characters
+        self.faker = Faker()
 
 
 
@@ -99,13 +99,16 @@ class RandomGenerator():
         return f"{name} is a {race} who is known for being {trait}. They come from {origin}, and cherish that place dearly.It was changed forever, though, when {event}. After that, they became a {char_class}, and hope to {goal} one day."
 
     def generate_char_attributes(self):
-        name = Faker.first_name()
+        name = self.faker.name()
 
         attribute_names = ['Strength','Dexterity','Constitution','Wisdom','Intelligence','Charisma']
         char_attributes = {"Strength":10,"Dexterity":10,"Constitution":10,"Wisdom":10,"Intelligence":10,"Charisma":10}
 
-        race = random.choice(self.races)
-        char_class = random.choice(self.classes)
+        races = ["Human", "Elf", "Dwarf", "Dragonborn", "Gnome", "Halfling"]
+        classes = ['Fighter','Barbarian','Rouge','Warlock','Sorcerer','Wizard','Bard']
+
+        race = random.choice(races)
+        char_class = random.choice(classes)
 
 
         for i in range(0,5):
@@ -116,7 +119,7 @@ class RandomGenerator():
 
     def generate_character(self):
         name,char_attributes,race,char_class = self.generate_char_attributes()
-        origin = faker.city_name(it_IT)
+        origin = self.faker.city()
         trait = random.choice(self.traits)
         event = random.choice(self.events)
         origin = random.choice(self.origins)
@@ -148,8 +151,8 @@ class RandomGenerator():
         quest_type = random.choice(self.quests.keys)
         quest_focus = random.choice(self.quests[quest_type])
         if quest_type not in ['craft','slay']:
-            city = faker.city_name(it_IT)
-        quest_giver = faker.first_name()
+            city = self.faker.city()
+        quest_giver = self.faker.name()
 
         if quest_type not in ['craft','slay']:
             print(f"You have been given a {quest_type} by a mysterious person named {quest_giver}. The goal of this quest is to {quest_type} the/a {quest_focus}. Your target will be found in the city of {city}")
