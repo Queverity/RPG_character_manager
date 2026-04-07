@@ -336,7 +336,7 @@ def main_menu():
 
     while True:
         clear_screen()
-        print("What would you like to do?\nCHARACTER FEATURES\n[1] Create Character\n[2] Inspect Character\n[3] Random Generator\n\nDATA & ANALYSIS\n[4] Visualize Character Stats\n[5] Statistical Analysis\n[6] Character Comparison Tools\n\nSKILL AND ITEM MANAGEMENT\n[7] Add Skill to Database\n[8] Add Item to Database\n\nDATA MANAGEMENT\n[9] Save Current Characters\n\n[Q] Quit")
+        print("What would you like to do?\nCHARACTER FEATURES\n[1] Create Character\n[2] Inspect Character\n[3] Random Generator\n\nDATA & ANALYSIS\n[4] Visualize Character Stats\n[5] Statistical Analysis (Nonfunctional)\n[6] Character Comparison Tools\n\nSKILL AND ITEM MANAGEMENT\n[7] Add Skill to Database\n[8] Add Item to Database\n\nDATA MANAGEMENT\n[9] Save Current Characters\n\n[Q] Quit")
 
         choice = input("Enter choice:\n").strip().capitalize()
 
@@ -356,7 +356,8 @@ def main_menu():
                 character_visualisation(characters)
                 continue
             case '5':
-                stats_analyze(characters)
+                print("This feature is currently nonfunctional, sorry.")
+                after_action()
                 continue
             case '6':
                 character_comparison(characters)
