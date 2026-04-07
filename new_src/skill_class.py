@@ -39,15 +39,18 @@ class Skill:
 def load_skill_objects(skills):
     skills_list = []
     for i in skills:
-        skill_object = (i['name'],i['id'],i['description'],i['level'],i['classes'])
+        skill_object = Skill(i['name'],i['id'],i['description'],i['level'],i['classes'])
         skills_list.append(skill_object)
 
     return skills_list
 
 def create_skill(skills_list):
     available_classes = ['Rouge','Fighter','Barbarian','Bard','Wizard','Sorcerer','Warlock','All']
-    name = input("Enter name for skills\n").strip()
-    description = input("Enter description for item:\n").strip()
+    name = input("Enter name for skill\n").strip()
+    description = input("Enter description for skill:\n").strip()
+
+    for i in available_classes:
+        print(i)
 
     while True:
         class_requirement = input("Please enter the required class to use this skill. If any class could use this skill, enter 'All'.").strip().capitalize()

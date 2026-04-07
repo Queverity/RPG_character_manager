@@ -2,7 +2,7 @@ name,id,description,value,weight,classes
 Daggers,aaa,"A pair of daggers that deal 1d4 damage.",5 ,2,Rogue
 Rapier,aab,"An old European sword with a thin, fast blade that deals 1d8 damage.",25,3,Rogue
 Leather Armor,aac,"Basic leather armor that provides an AC of 11 + Dex Modifier.",10,10,Rogue
-Lockpicks,aad,"A set of lockpicks that can unlock many doors, if you have the skill.",2,0.5,Rogue
+Lockpicks,aad,"A set of lockpicks that can unlock many doors, if you have the skill.",2,Negligible,Rogue
 Fake ID,aae,"A fake ID that can get you many places you shouldn’t be.",Varies,Negligible,Rogue
 Cloak of Shadows,aaf,"A dark cloak that helps you blend into shadows.",15,2,Rogue
 Poison Vial,aag,"A small vial of basic poison.",20,0.5,Rogue
@@ -59,4 +59,4 @@ Flint and Steel,aby,"Tools used to start fires.",2,1,All
 Lantern,abz,"A reusable light source.",7,2,All
 Oil Flask,aca,"Fuel for lanterns or fires.",1,1,All
 Compass,acb,"Helps with navigation.",5,1,All
-Map,acc,"A map of the surrounding area.",3,0.5,All
+Map,acc,"A map of the surrounding area.",3,Negligible,All

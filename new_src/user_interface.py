@@ -176,7 +176,7 @@ def character_comparison(characters):
     analyzer = StatiscalAnalyzer(characters,char1,char2)
 
     while True:
-        print("What would you like to do?\n[1] Visulize & Compare Character Stats\n[2] Statiscally Analyze and Compare Characters\n[R] Return to Main Menu")
+        print("What would you like to do?\n[1] Visulize & Compare Character Stats\n[2] Statiscally Analyze and Compare Characters (Nonfunctional)\n[R] Return to Main Menu")
 
         choice = input("Enter choice:\n").strip().upper()
 
@@ -190,9 +190,7 @@ def character_comparison(characters):
                 after_action()
                 continue
             case '2':
-                print("Generating chart & data...")
-                analyzer.compare_characters()
-                print("Succesfully generated!")
+                print("This feature is currently nonfunctional, sorry.")
                 after_action()
                 continue
             case 'R':
@@ -206,7 +204,7 @@ def generator_menu(characters):
 
     while True:
         clear_screen()
-        print("What would you like to do?\n[1] Generate Character\n[2] Generate Quest\n[R] Return to Main Menu")
+        print("What would you like to do?\n[1] Generate Character\n[2] Generate Quest (Nonfunctional)\n[R] Return to Main Menu")
         mode = input("Enter choice:\n").strip().upper()
 
         clear_screen()
@@ -217,7 +215,8 @@ def generator_menu(characters):
                 characters.append(character_object)
                 continue
             case '2':
-                generator.generate_quest()
+                print("This feature is currently nonfunctional, sorry.")
+                after_action()
                 continue
             case 'R':
                 break

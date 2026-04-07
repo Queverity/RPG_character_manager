@@ -49,10 +49,14 @@ def create_item(items_list):
     description = input("Enter description for item:\n").strip()
 
     while True:
+        for i in available_classes:
+            print(i)
+
         class_requirement = input("Please enter the required class to use this item. If any class could use this item, enter 'All'.").strip().capitalize()
 
         if class_requirement not in available_classes:
             print("Please enter a valid class.")
+            after_action()
             continue
 
         break

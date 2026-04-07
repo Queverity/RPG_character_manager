@@ -90,7 +90,7 @@ class Character:
         for i in items_list:
             if i.class_requirement.lower() == "all":
                 user_items.append(i)
-            elif self.char_class.lower() in i.class_requirement.lower():
+            elif self.char_class.lower() == i.class_requirement.lower():
                 user_items.append(i)
             else:
                 pass
@@ -98,7 +98,7 @@ class Character:
         for i in self.inventory:
             for o in user_items:
                 if i.lower() == o.id.lower():
-                    user_items.pop(o)
+                    user_items.pop(user_items.index(o))
 
         # after this, check if any of the items in the list match an id in the uesr's inventory
 
@@ -121,7 +121,7 @@ class Character:
         for i in self.skills:
             for o in user_skills:
                 if i.lower() == o.id.lower():
-                    user_skills.pop(o)
+                    user_skills.pop(user_skills.index(o))
 
         return user_skills
 
@@ -145,7 +145,7 @@ class Character:
             if i.weight == "Negligible":
                 pass
             else:
-                total_weight += int(i.weight)
+                total_weight += float(i.weight)
 
         return total_weight
 
@@ -175,7 +175,7 @@ class Character:
                 # Since these are Item class objects, they have a __str__ function built in so they print out pretty.
                 print(f"{count}. {i.basic_view()}")
 
-            print("What would you like to do with your character's inventory?\n[1] Inspect Item\n[2] Remove Item\n[3]Add Item\n[R] Return to Character Inspection Menu")
+            print("What would you like to do with your character's inventory?\n[1] Inspect Item\n[2] Remove Item\n[3] Add Item\n[R] Return to Character Inspection Menu")
             choice = input("Enter number:\n").strip().capitalize()
 
             clear_screen()
@@ -223,11 +223,11 @@ class Character:
                     for i in self.inventory:
                         if item_id == i.lower():
                             found = True
-                            self.inventory.pop(i)
+                            self.inventory.pop(self.inventory.index(i))
 
                             for o in user_inventory:
                                 if o.id.lower() == item_id:
-                                    user_inventory.pop(o)
+                                    user_inventory.pop(user_inventory.index(o))
                                 else:
                                     pass
 
@@ -266,7 +266,7 @@ class Character:
                     for i in available_items:
                         if item_id == i.id.lower():
                             if i.weight != "Negligible":
-                                if inventory_weight + int(i.weight) > int(self.attributes['Strength']) * 15:
+                                if inventory_weight + float(i.weight) > int(self.attributes['Strength']) * 15:
                                     print("Adding that item to your inventory would bring your total inventory weight over maximum (Strength * 15).")
                                     break
                             
@@ -296,7 +296,7 @@ class Character:
 
     def edit_skills(self,skills_list):
         available_skills = self.find_skills(skills_list)
-        user_skills = self.load_skills()
+        user_skills = self.load_skills(skills_list)
 
         
 
@@ -309,7 +309,7 @@ class Character:
                 # Since these are Item class objects, they have a __str__ function built in so they print out pretty.
                 print(f"{count}. {i.basic_view()}")
 
-            print("What would you like to do with your character's inventory?\n[1] Inspect Item\n[2] Remove Item\n[3] Add Item\n[R] Return to Character Inspection Menu")
+            print("What would you like to do with your character's skills?\n[1] Inspect Skill\n[2] Remove Skill\n[3] Add Skill\n[R] Return to Character Inspection Menu")
             choice = input("Enter number:\n").strip().capitalize()
 
             clear_screen()
@@ -337,7 +337,7 @@ class Character:
 
                 case '2':
                     if bool(self.skills) == False:
-                        print("You have no skills in your inventory.")
+                        print("You have no skills in your skill list.")
                         after_action()
                         continue
 
@@ -357,11 +357,11 @@ class Character:
                     for i in self.skills:
                         if item_id == i.lower():
                             found = True
-                            self.skills.pop(i)
+                            self.skills.pop(self.skills.index(i))
 
                             for o in user_skills:
                                 if o.id.lower() == item_id:
-                                    user_skills.pop(o)
+                                    user_skills.pop(user_skills.index(o))
                                 else:
                                     pass
 
@@ -399,7 +399,7 @@ class Character:
                         if item_id == i.id.lower():
                             
                             found = True
-                            self.inventory.append(item_id)
+                            self.skills.append(item_id)
 
                             for o in user_skills:
                                 if o.id.lower() == item_id:
