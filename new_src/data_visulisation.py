@@ -24,7 +24,7 @@ class DataVisulisation:
         self.character2 = character2
 
     def single_plt(self):
-        plt.bar(self.categories,self.character1.attributes)
+        plt.bar(self.categories,list(self.character1.attributes.values()))
 
         plt.xlabel('Stats')
         plt.ylabel('Value')
@@ -34,8 +34,8 @@ class DataVisulisation:
     def comparison_plt(self):
         # 1. Prepare data
         categories = ['Str','Dex','Con','Int','Wis','Rizz']
-        stats1 = self.character1.attributes
-        stats2 = self.character2.attributes
+        stats1 = list(self.character1.attributes.values())
+        stats2 = list(self.character2.attributes.values())
 
         x = np.arange(len(categories))  # Base label locations
         width = 0.35               # Width of each individual bar

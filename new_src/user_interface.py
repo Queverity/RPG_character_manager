@@ -180,20 +180,20 @@ def character_comparison(characters):
 
         choice = input("Enter choice:\n").strip().upper()
 
-        # clear_screen()
+        clear_screen()
 
         match choice:
             case '1':
                 print("Generating comparison chart...")
                 visualizer.comparison_plt()
                 print("Succesfully generated!")
-                # after_action()
+                after_action()
                 continue
             case '2':
                 print("Generating chart & data...")
                 analyzer.compare_characters()
                 print("Succesfully generated!")
-                # after_action()
+                after_action()
                 continue
             case 'R':
                 return
@@ -205,11 +205,11 @@ def generator_menu(characters):
     print("Welcome to the Random Generation Menu! Here, you can randomly generate characters and quests. You can't have anything preset, because I didn't feel like coding it. Sorry.")
 
     while True:
-        # clear_screen
+        clear_screen()
         print("What would you like to do?\n[1] Generate Character\n[2] Generate Quest\n[R] Return to Main Menu")
         mode = input("Enter choice:\n").strip().upper()
 
-        # clear_screen()
+        clear_screen()
 
         match mode:
             case '1':
@@ -223,7 +223,7 @@ def generator_menu(characters):
                 break
             case _:
                 print("Please enter one of the display choices.")
-                # after_action()
+                after_action()
                 continue
 
     return characters  
@@ -239,7 +239,7 @@ def inspect_character(characters,skills,items):
 
         choice = input("Enter choice:\n").strip().capitalize()
 
-        # clear_screen
+        clear_screen()
 
         match choice:
             case '1':
@@ -252,13 +252,13 @@ def inspect_character(characters,skills,items):
                 continue
             case '4':
                 while True:
-                    # clear_screen()
+                    clear_screen()
                     print(char)
                     print("What would you like to do?\n[1] Change Character Name\n[2] Change Character Level\n[R] Return to Character Inspection Menu")
 
                     choice = input("Enter choice:\n").strip().upper()
 
-                    # clear_screen()
+                    clear_screen()
 
                     match choice:
                         case '1':
@@ -270,12 +270,12 @@ def inspect_character(characters,skills,items):
 
                                 if new_name.lower() == char.name:
                                     print("That is the current name of your character.")
-                                    # after_action
+                                    after_action()
                                     continue
 
                                 char.name = new_name
                                 print("Name changed succesfully.")
-                                # after_action
+                                after_action()
                                 break
                             continue
                         case '2':
@@ -291,11 +291,11 @@ def inspect_character(characters,skills,items):
                                     new_level = int(new_level)
                                 except:
                                     print("Please enter an actual number for the character level.")
-                                    # after_action
+                                    after_action()
                                 else:
                                     if new_level <= int(char.level) or new_level > 20:
                                         print("That is either less than or equal the current level of your character, or it is above 20.")
-                                        # after_action()
+                                        after_action()
                                     
                                     level_difference = new_level - char.level
                                     char.level = new_level
@@ -316,7 +316,7 @@ def inspect_character(characters,skills,items):
                 return
             case _:
                 print("Please enter of the displayed options.")
-                # after_action()
+                after_action()
                 continue
     
 def main_menu():

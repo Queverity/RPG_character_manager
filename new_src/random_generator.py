@@ -122,7 +122,6 @@ class RandomGenerator():
         origin = self.faker.city()
         trait = random.choice(self.traits)
         event = random.choice(self.events)
-        origin = random.choice(self.origins)
         goal = random.choice(self.goals)
 
         backstory = self.generate_char_backstory(name,race,char_class,trait,event,origin,goal)

@@ -1,1 +1,3 @@
-name,id,class,level,race,attribute,skills,inventory
+name,id,char_class,level,race,attributes,skills,inventory
+James Smith DDS,AAA,Rouge,1,Dwarf,12|14|13|8|8|10,,
+Dr. Joshua Luna,AAB,Sorcerer,1,Halfling,18|17|17|11|10|10,,

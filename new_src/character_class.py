@@ -53,7 +53,7 @@ class Character:
         return f"{self.name}, Level {self.level} {self.race} {self.char_class} (ID: {self.id})"
     
     def display_stats(self):
-        for k,v in self.attributes:
+        for k,v in self.attributes.items():
             print(f"{k}: {v}")
 
         print("Note: Stats cannot be changed from this menu. You can gain +1 to a stat of your choosing per level.")
@@ -244,7 +244,7 @@ class Character:
                 case '3':
                     inventory_weight = self.inventory_weight(items_list)
 
-                    if inventory_weight >= self.attributes['Strength'] * 15:
+                    if inventory_weight >= int(self.attributes['Strength']) * 15:
                         print("You have too much weight in your inventory to carry anything else.")
                         after_action()
                         return
@@ -266,7 +266,7 @@ class Character:
                     for i in available_items:
                         if item_id == i.id.lower():
                             if i.weight != "Negligible":
-                                if inventory_weight + int(i.weight) > self.attributes['Strength'] * 15:
+                                if inventory_weight + int(i.weight) > int(self.attributes['Strength']) * 15:
                                     print("Adding that item to your inventory would bring your total inventory weight over maximum (Strength * 15).")
                                     break
                             
@@ -574,24 +574,24 @@ def create_character_objects(characters_csv):
     characters_list = []
     for i in characters_csv:
         character_attributes = {"Strength":"N/A","Dexterity":"N/A","Constitution":"N/A","Wisdom":"N/A","Intelligence":"N/A","Charisma":"N/A"}
-        attribute_values = i.attributes.split("|")
+        attribute_values = i['attributes'].split("|")
         index = 0
         for k in character_attributes.keys():
             character_attributes[k] = attribute_values[index]
             index += 1
         
-        inventory = i.inventory.split("|")
+        inventory = i['inventory'].split("|")
 
-        skills = i.skills.split("|")
+        skills = i['skills'].split("|")
 
-        character_object = Character(i.name,i.char_class,i.race,i.level,character_attributes)
+        character_object = Character(i['name'],i['id'],i['char_class'],i['race'],i['level'],character_attributes)
         character_object.inventory = inventory
         character_object.skills = skills
 
-        i.level = int(i.level)
+        character_object.level = int(i['level'])
 
-        for i in character_attributes:
-            i = int(i)
+        for k, v in character_attributes.items():
+            character_attributes[k] = int(v)
 
         characters_list.append(character_object)
 
